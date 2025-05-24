@@ -8,15 +8,17 @@ private:
 
 public:
 
-    float pricePerItem;   
+    float pricePerItem;
+    float dis;   
 
 
-    void setProduct(int q, float price) {
+    void setProduct(int q, float price,float d) {
 
         if (q > 0 && price > 0) {
             quantity = q;
 
             pricePerItem = price;
+            dis=d;
 
         } else {
 
@@ -28,7 +30,7 @@ public:
 
     float getTotalPrice() {
 
-        return quantity * pricePerItem;
+        return quantity * pricePerItem-dis;
 
     }
 
@@ -49,6 +51,8 @@ int main() {
     int qty;
 
     float price;
+    float discount;
+
 
     cout << "Enter quantity: ";
 
@@ -57,10 +61,12 @@ int main() {
     cout << "Enter price per item: ";
 
     cin >> price;
+    cout<<"enter the amount of discount";
+    cin>>discount;
 
     
 
-    p.setProduct(qty, price);
+    p.setProduct(qty, price,discount);
 
     cout << "\nQuantity: " << p.getQuantity() << endl;
 
